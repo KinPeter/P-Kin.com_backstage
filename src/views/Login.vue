@@ -1,7 +1,7 @@
 <template>
     <v-row justify="center" no-gutters>
         <v-col md="5">
-            <v-card :loading="false">
+            <v-card :loading="isLoading">
                 <v-card-title>Log in</v-card-title>
                 <v-card-subtitle>Please enter your credentials</v-card-subtitle>
                 <v-form class="pa-4" ref="loginForm">
@@ -24,7 +24,8 @@
                             raised 
                             color="primary" 
                             class="mx-auto"
-                            :disabled="!isValid">
+                            :disabled="!isValid"
+                            @click="login({email, password})">
                             Log in
                         </v-btn>
                     </div>
@@ -36,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default Vue.extend({
     data() {
@@ -45,9 +47,13 @@ export default Vue.extend({
         };
     },
     computed: {
+        ...mapGetters(['isLoading']),
         isValid(): boolean {
             return /.+@.+\..+/.test(this.email) && !!this.password.length;
         },
+    },
+    methods: {
+        ...mapActions(['login']),
     },
 });
 </script>

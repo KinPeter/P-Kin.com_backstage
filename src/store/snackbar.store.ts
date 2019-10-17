@@ -1,9 +1,10 @@
 import { SnackbarState, Context } from './../models/stores';
 
 const state: SnackbarState = {
-    shown: true,
-    hasError: true,
-    message: 'Hello, I am a snackbar',
+    shown: false,
+    hasError: false,
+    message: '',
+    timeout: 3000,
 };
 
 const getters = {
@@ -15,6 +16,9 @@ const getters = {
     },
     snackbarMessage(st: SnackbarState): string {
         return st.message;
+    },
+    snackbarTimeout(st: SnackbarState): number {
+        return st.timeout;
     },
 };
 
@@ -28,13 +32,26 @@ const mutations = {
     setMessage(st: SnackbarState, message: string): void {
         st.message = message;
     },
+    setSbTimeout(st: SnackbarState, timeout: number): void {
+        st.timeout = timeout;
+    },
 };
 
 const actions = {
-    errorOccured(context: Context, message: string): void {
+    showError(context: Context, message: string): void {
         context.commit('setError', true);
+        context.commit('setSbTimeout', 6000);
         context.commit('setMessage', message);
         context.commit('setShow', true);
+    },
+    showSuccess(context: Context, message: string): void {
+        context.commit('setError', false);
+        context.commit('setSbTimeout', 3000);
+        context.commit('setMessage', message);
+        context.commit('setShow', true);
+    },
+    closeSnackbar(context: Context): void {
+        context.commit('setShow', false);
     },
 };
 
