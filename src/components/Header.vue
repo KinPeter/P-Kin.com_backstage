@@ -5,7 +5,7 @@
             <span class="font-weight-light">/backstage</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <template v-if="true">
+        <template v-if="isLoggedIn">
             <v-btn text to="/skills">skills</v-btn>
             <v-btn text to="/portfolio"><span class="">portfolio</span></v-btn>
             <v-btn text to="/pens"><span class="">pens</span></v-btn>
@@ -19,16 +19,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapGetters } from 'vuex';
+import { Auth } from '../store/getters';
+import { AuthActions } from '../store/actions';
 
 export default Vue.extend({
+    computed: {
+        ...mapGetters({
+            isLoggedIn: Auth.IS_LOGGED_IN,
+        }),
+    },
     methods: {
         logout(): void {
-            // call action logout
+            this.$store.dispatch(AuthActions.LOGOUT);
         },
     },
 });
 </script>
-
-<style lang="scss">
-    
-</style>
