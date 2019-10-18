@@ -1,6 +1,6 @@
 <template>
     <v-row justify="center" no-gutters>
-        <v-col md="5">
+        <v-col sm="8" md="5" xl="3">
             <v-card v-if="!isLoggedIn" :loading="isLoading">
                 <v-card-title>Log in</v-card-title>
                 <v-card-subtitle>Please enter your credentials</v-card-subtitle>

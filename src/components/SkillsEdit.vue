@@ -1,6 +1,6 @@
 <template>
 <v-row justify="center">
-    <v-col sm="10">
+    <v-col sm="12" md="10" lg="10" xl="8">
         <v-card :loading="isLoading">
             <div class="d-flex justify-space-between">
                 <v-card-title>Edit Skills</v-card-title>
