@@ -83,9 +83,7 @@ const actions = {
             successMessage: 'Skills are updated successfully.',
             errorMessage: 'Unable to save skills.',
         };
-        // tslint:disable-next-line: no-console
-        console.log('SAVE request:', requestOptions);
-        // context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
+        context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
     },
 };
 
