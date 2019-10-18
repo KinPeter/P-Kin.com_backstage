@@ -29,4 +29,9 @@ export enum SkillsActions {
     DELETE_ITEM = 'deleteItem',
     ADD_NEW_ITEM = 'addNewItem',
     SAVE_SKILLS = 'saveSkills',
+    MOVE_TECH_LEFT = 'moveItemLeft',
+    MOVE_TECH_RIGHT = 'moveItemRight',
+    DELETE_TECH = 'deleteTech',
+    ADD_NEW_TECH = 'addNewTech',
+    SAVE_TECHS = 'saveTechs',
 }

@@ -50,6 +50,8 @@ const actions = {
     populateOtherTechs(context: Context, otherTechs: string[]): void {
         context.commit('setOtherTechs', otherTechs);
     },
+
+// SKILLS
     moveItemUp(context: Context, index: number): void {
         const newIndex = index - 1;
         const copyArr = [...context.getters.skills];
@@ -82,6 +84,43 @@ const actions = {
             successAction: SkillsActions.FETCH_SKILLS,
             successMessage: 'Skills are updated successfully.',
             errorMessage: 'Unable to save skills.',
+        };
+        context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
+    },
+
+// OTHER TECHS
+    moveItemLeft(context: Context, index: number): void {
+        const newIndex = index - 1;
+        const copyArr = [...context.getters.otherTechs];
+        const currentElem = copyArr.splice(index, 1)[0];
+        copyArr.splice(newIndex, 0, currentElem);
+        context.commit('setOtherTechs', copyArr);
+    },
+    moveItemRight(context: Context, index: number): void {
+        const newIndex = index + 1;
+        const copyArr = [...context.getters.otherTechs];
+        const currentElem = copyArr.splice(index, 1)[0];
+        copyArr.splice(newIndex, 0, currentElem);
+        context.commit('setOtherTechs', copyArr);
+    },
+    deleteTech(context: Context, index: number): void {
+        const copyArr = [...context.getters.otherTechs];
+        copyArr.splice(index, 1);
+        context.commit('setOtherTechs', copyArr);
+    },
+    addNewTech(context: Context): void {
+        const copyArr = [...context.getters.otherTechs];
+        copyArr.unshift('');
+        context.commit('setOtherTechs', copyArr);
+    },
+    saveTechs(context: Context): void {
+        const requestOptions: HttpOptions = {
+            method: 'PUT',
+            endpoint: 'other-techs.json',
+            data: context.getters.otherTechs,
+            successAction: SkillsActions.FETCH_OTHERS,
+            successMessage: 'Techs are updated successfully.',
+            errorMessage: 'Unable to save techs.',
         };
         context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
     },
