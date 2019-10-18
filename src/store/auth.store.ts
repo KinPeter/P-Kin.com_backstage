@@ -1,4 +1,5 @@
 import { AuthState, Context, LoginData, HttpOptions } from './../models/stores';
+import { AuthActions, HttpActions } from './actions';
 
 const state: AuthState = {
     token: null,
@@ -32,11 +33,11 @@ const actions = {
                 ...credentials,
                 returnSecureToken: true,
             },
-            successAction: 'loginSuccess',
+            successAction: AuthActions.LOGIN_SUCCESS,
             successMessage: 'Logged in successfully!',
             errorMessage: 'Authentication failed.',
         };
-        context.dispatch('sendRequest', requestOptions);
+        context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
     },
     loginSuccess(context: Context, userData: any): void {
         // tslint:disable-next-line: no-console

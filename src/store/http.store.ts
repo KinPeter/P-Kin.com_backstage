@@ -1,5 +1,6 @@
 import { HttpState, HttpOptions, Context } from './../models/stores';
 import { API_URL, API_KEY, LOGIN_URL } from '../../credentials';
+import { UIActions, SnackbarActions } from './actions';
 
 const state: HttpState = {
     apiUrl: API_URL,
@@ -14,7 +15,7 @@ const mutations = {
 
 const actions = {
     async sendRequest(context: Context, options: HttpOptions): Promise<any> {
-        context.dispatch('startLoading');
+        context.dispatch(UIActions.START_LOADING);
         let url: string;
         if (options.login) {
             url = context.state.loginUrl + API_KEY;
@@ -32,16 +33,16 @@ const actions = {
             const data = await response.json();
             if (response.status === 200) {
                 context.dispatch(options.successAction, data);
-                context.dispatch('showSuccess', options.successMessage);
+                context.dispatch(SnackbarActions.SHOW_SUCCESS, options.successMessage);
             } else {
                 throw new Error(JSON.stringify(data));
             }
         } catch (error) {
             // tslint:disable-next-line: no-console
             console.log(error);
-            context.dispatch('showError', options.errorMessage);
+            context.dispatch(SnackbarActions.SHOW_ERROR, options.errorMessage);
         } finally {
-            context.dispatch('stopLoading');
+            context.dispatch(UIActions.STOP_LOADING);
         }
     },
 };
