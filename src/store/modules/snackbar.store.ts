@@ -1,4 +1,4 @@
-import { SnackbarState, Context } from './../models/stores';
+import { SnackbarState, Context } from '../../models/stores';
 
 const state: SnackbarState = {
     shown: false,

@@ -1,4 +1,4 @@
-import { UIState, Context } from './../models/stores';
+import { UIState, Context } from '../../models/stores';
 
 const state: UIState = {
     isLoading: false,

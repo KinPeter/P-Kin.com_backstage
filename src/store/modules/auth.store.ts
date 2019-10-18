@@ -1,6 +1,6 @@
-import { AuthState, Context, LoginData, HttpOptions } from './../models/stores';
-import { AuthActions, HttpActions } from './actions';
-import router from '../router';
+import { AuthState, Context, LoginData, HttpOptions } from '../../models/stores';
+import { AuthActions, HttpActions } from '../actions';
+import router from '../../router';
 
 const state: AuthState = {
     token: null,

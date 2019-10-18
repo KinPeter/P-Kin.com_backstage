@@ -1,6 +1,6 @@
-import { HttpState, HttpOptions, Context } from './../models/stores';
-import { API_URL, API_KEY, LOGIN_URL } from '../../credentials';
-import { UIActions, SnackbarActions } from './actions';
+import { HttpState, HttpOptions, Context } from '../../models/stores';
+import { API_URL, API_KEY, LOGIN_URL } from '../../../credentials';
+import { UIActions, SnackbarActions } from '../actions';
 
 const state: HttpState = {
     apiUrl: API_URL,
