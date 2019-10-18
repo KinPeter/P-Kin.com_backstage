@@ -35,3 +35,13 @@ export enum SkillsActions {
     ADD_NEW_TECH = 'addNewTech',
     SAVE_TECHS = 'saveTechs',
 }
+
+export enum PensActions {
+    FETCH_PENS = 'fetchPens',
+    POPULATE_PENS = 'populatePens',
+    MOVE_ITEM_UP = 'movePenUp',
+    MOVE_ITEM_DOWN = 'movePenDown',
+    DELETE_ITEM = 'deletePen',
+    ADD_NEW_ITEM = 'addNewPen',
+    SAVE_PENS = 'savePens',
+}

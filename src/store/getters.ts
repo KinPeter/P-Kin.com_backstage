@@ -22,3 +22,7 @@ export enum Skills {
     SKILLS = 'skills',
     OTHERS = 'otherTechs',
 }
+
+export enum Pens {
+    PENS = 'pens',
+}
