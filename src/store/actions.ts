@@ -18,3 +18,15 @@ export enum AuthActions {
     LOGOUT = 'logout',
     LOGIN_SUCCESS = 'loginSuccess',
 }
+
+export enum SkillsActions {
+    FETCH_SKILLS = 'fetchSkills',
+    POPULATE_SKILLS = 'populateSkills',
+    FETCH_OTHERS = 'fetchOtherTechs',
+    POPULATE_OTHERS = 'populateOtherTechs',
+    MOVE_ITEM_UP = 'moveItemUp',
+    MOVE_ITEM_DOWN = 'moveItemDown',
+    DELETE_ITEM = 'deleteItem',
+    ADD_NEW_ITEM = 'addNewItem',
+    SAVE_SKILLS = 'saveSkills',
+}

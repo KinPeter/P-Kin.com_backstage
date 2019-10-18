@@ -17,3 +17,8 @@ export enum Snackbar {
 export enum UI {
     IS_LOADING = 'isLoading',
 }
+
+export enum Skills {
+    SKILLS = 'skills',
+    OTHERS = 'otherTechs',
+}

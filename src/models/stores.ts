@@ -29,7 +29,7 @@ export interface HttpOptions {
     token?: string;
     login?: boolean;
     successAction: string;
-    successMessage: string;
+    successMessage?: string;
     errorMessage: string;
 }
 

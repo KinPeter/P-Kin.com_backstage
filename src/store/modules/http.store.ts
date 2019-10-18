@@ -21,7 +21,7 @@ const actions = {
             url = context.state.loginUrl + API_KEY;
         } else {
             const params = options.queryParams ? '&' + options.queryParams : '';
-            const auth = `?auth=${context.getters('token')}`;
+            const auth = `?auth=${context.getters.token}`;
             url = context.state.apiUrl + options.endpoint + auth + params;
         }
         try {
@@ -33,7 +33,9 @@ const actions = {
             const data = await response.json();
             if (response.status === 200) {
                 context.dispatch(options.successAction, data);
-                context.dispatch(SnackbarActions.SHOW_SUCCESS, options.successMessage);
+                if (options.successMessage) {
+                    context.dispatch(SnackbarActions.SHOW_SUCCESS, options.successMessage);
+                }
             } else {
                 throw new Error(JSON.stringify(data));
             }
