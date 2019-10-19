@@ -6,6 +6,7 @@ import ui from './modules/ui.store';
 import auth from './modules/auth.store';
 import skills from './modules/skills.store';
 import pens from './modules/pens.store';
+import portfolio from './modules/portfolio.store';
 
 Vue.use(Vuex);
 
@@ -17,5 +18,6 @@ export default new Vuex.Store({
         auth,
         skills,
         pens,
+        portfolio,
     },
 });

@@ -26,3 +26,8 @@ export enum Skills {
 export enum Pens {
     PENS = 'pens',
 }
+
+export enum Portfolio {
+    ITEMS = 'portfolioItems',
+    BADGES = 'portfolioBadges',
+}

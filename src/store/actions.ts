@@ -45,3 +45,25 @@ export enum PensActions {
     ADD_NEW_ITEM = 'addNewPen',
     SAVE_PENS = 'savePens',
 }
+
+export enum PortfolioActions {
+    FETCH_PORTFOLIO = 'fetchPortfolio',
+    POPULATE_PORTFOLIO = 'populatePortfolio',
+    DELETE_PORTFOLIO_ITEM = 'deletePortfolioItem',
+    UPDATE_PORTFOLIO_ITEM = 'updatePortfolioItem',
+    ADD_NEW_PORTFOLIO = 'addNewPortfolioItem',
+    ADD_BADGE_TO_ITEM = 'addBadgeToItem',
+    DELETE_BADGE_FROM_ITEM = 'deleteBadgeFromItem',
+    ADD_FEATURE_TO_ITEM = 'addFeatureToItem',
+    DELETE_FEATURE_FROM_ITEM = 'deleteFeatureFromItem',
+    MOVE_FEATURE_UP = 'moveFeatureUp',
+    MOVE_FEATURE_DOWN = 'moveFeatureDown',
+    SAVE_NEW_PORTFOLIO = 'saveNewPortfolioItem',
+    FETCH_FILTER_BADGES = 'fetchBadges',
+    POPULATE_FILTER_BADGES = 'populateBadges',
+    ADD_FILTER_BADGE = 'addFilterBadge',
+    DELETE_FILTER_BADGE = 'deleteFilterBadge',
+    SAVE_FILTER_BADGES = 'saveFilterBadges',
+    MOVE_BADGE_LEFT = 'moveBadgeLeft',
+    MOVE_BADGE_RIGHT = 'moveBadgeRight',
+}
