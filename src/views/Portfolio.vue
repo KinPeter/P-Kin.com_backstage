@@ -18,7 +18,7 @@ export default Vue.extend({
         bsBadges: PortfolioBadgesEditVue,
     },
     created() {
-        // this.$store.dispatch(PortfolioActions.FETCH_PORTFOLIO);
+        this.$store.dispatch(PortfolioActions.FETCH_PORTFOLIO);
         this.$store.dispatch(PortfolioActions.FETCH_FILTER_BADGES);
     },
 });

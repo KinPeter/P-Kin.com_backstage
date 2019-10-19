@@ -20,6 +20,11 @@ export interface PortfolioState {
     portfolioBadges: string[];
 }
 
+export interface PortfolioItemUpdate {
+    id: string;
+    data: PortfolioItem;
+}
+
 export interface PortfolioBadgeUpdate {
     index: number;
     badges: string[];
