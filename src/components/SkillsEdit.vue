@@ -29,14 +29,14 @@
                         <v-row class="mb-n8">
                             <v-col sm="3">
                                 <v-text-field
-                                    v-model="skillsSnapshot[i].language"
+                                    v-model="skill.language"
                                     label="Language"
                                 ></v-text-field>
                             </v-col>
                             <v-col sm="6">
                                 <v-subheader class="pl-0 mt-n3">Level</v-subheader>
                                 <v-slider
-                                    v-model="skillsSnapshot[i].level"
+                                    v-model="skill.level"
                                     thumb-label="always"
                                     thumb-size="24"
                                     min="0"

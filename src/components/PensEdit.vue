@@ -30,7 +30,7 @@
                             <v-col sm="8">
                                 <v-text-field
                                     dense
-                                    v-model="pensSnapshot[i].name"
+                                    v-model="pen.name"
                                     label="Name">
                                 </v-text-field>
                             </v-col>
@@ -64,7 +64,7 @@
                             <v-col sm="12">
                                 <v-text-field
                                     dense
-                                    v-model="pensSnapshot[i].descr"
+                                    v-model="pen.descr"
                                     label="Description">
                                 </v-text-field>
                             </v-col>
@@ -73,14 +73,14 @@
                             <v-col sm="3">
                                 <v-text-field
                                     dense
-                                    v-model="pensSnapshot[i].codepenId"
+                                    v-model="pen.codepenId"
                                     label="Codepen ID">
                                 </v-text-field>
                             </v-col>
                             <v-col sm="9">
                                 <v-text-field
                                     dense
-                                    v-model="pensSnapshot[i].codepenTitle"
+                                    v-model="pen.codepenTitle"
                                     label="Codepen title">
                                 </v-text-field>
                             </v-col>
