@@ -41,8 +41,6 @@ const actions = {
         context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
     },
     loginSuccess(context: Context, userData: any): void {
-        // tslint:disable-next-line: no-console
-        console.log(userData);
         context.commit('setToken', userData.idToken);
         context.commit('setAuth', true);
     },
