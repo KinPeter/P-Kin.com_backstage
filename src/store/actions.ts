@@ -56,8 +56,6 @@ export enum PortfolioActions {
     DELETE_BADGE_FROM_ITEM = 'deleteBadgeFromItem',
     ADD_FEATURE_TO_ITEM = 'addFeatureToItem',
     DELETE_FEATURE_FROM_ITEM = 'deleteFeatureFromItem',
-    MOVE_FEATURE_UP = 'moveFeatureUp',
-    MOVE_FEATURE_DOWN = 'moveFeatureDown',
     SAVE_NEW_PORTFOLIO = 'saveNewPortfolioItem',
     FETCH_FILTER_BADGES = 'fetchBadges',
     POPULATE_FILTER_BADGES = 'populateBadges',

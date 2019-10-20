@@ -2,10 +2,9 @@ import { Context, HttpOptions } from '../../models/stores';
 import {
     PortfolioState,
     PortfolioItem,
-    PortfolioItemUpdate,
     PortfolioFeature,
-    PortfolioBadgeUpdate,
-    PortfolioFeatureUpdate,
+    PortfolioBadgeDeleteData,
+    PortfolioFeatureDeleteData,
 } from '../../models/portfolio';
 import { HttpActions, PortfolioActions } from '../actions';
 
@@ -56,26 +55,25 @@ const actions = {
     },
     populatePortfolio(context: Context, data: any): void {
         const items = transformPortfolioItems(data);
-        // tslint:disable-next-line: no-console
-        console.log(items);
         context.commit('setPortfolioItems', items);
     },
     deletePortfolioItem(context: Context, id: string): void {
         const requestOptions: HttpOptions = {
             method: 'DELETE',
-            endpoint: 'test/' + id + '.json', // portfolio-items/id.json
+            endpoint: 'portfolio-items/' + id + '.json',
             successAction: PortfolioActions.FETCH_PORTFOLIO,
             successMessage: 'Portfolio item has been deleted successfully.',
             errorMessage: 'Unable to delete portfolio item.',
         };
         context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
     },
-    updatePortfolioItem(context: Context, payload: PortfolioItemUpdate): void {
-        const update = payload.data;
+    updatePortfolioItem(context: Context, index: number): void {
+        const itemId = context.getters.portfolioItems[index].id;
+        const update = {...context.getters.portfolioItems[index]};
         delete update.id;
         const requestOptions: HttpOptions = {
             method: 'PUT',
-            endpoint: 'test/' + payload.id + '.json', // portfolio-items/id.json
+            endpoint: 'portfolio-items/' + itemId + '.json',
             data: update,
             successAction: PortfolioActions.FETCH_PORTFOLIO,
             successMessage: 'Portfolio item has been updated successfully.',
@@ -90,26 +88,45 @@ const actions = {
         });
         context.commit('setPortfolioItems', copyArr);
     },
-    addBadgeToItem(context: Context): void {
-        //
+    addBadgeToItem(context: Context, itemIndex: number): void {
+        const copyArr = [...context.getters.portfolioItems];
+        const badgesArr: string[] = copyArr[itemIndex].badges;
+        badgesArr.push('');
+        context.commit('setPortfolioItems', copyArr);
     },
-    deleteBadgeFromItem(context: Context): void {
-        //
+    deleteBadgeFromItem(context: Context, payload: PortfolioBadgeDeleteData): void {
+        const copyArr = [...context.getters.portfolioItems];
+        const badgesArr: string[] = copyArr[payload.itemIndex].badges;
+        badgesArr.splice(payload.badgeIndex, 1);
+        context.commit('setPortfolioItems', copyArr);
     },
-    addFeatureToItem(context: Context): void {
-        //
+    addFeatureToItem(context: Context, itemIndex: number): void {
+        const copyArr = [...context.getters.portfolioItems];
+        const featuresArr: PortfolioFeature[] = copyArr[itemIndex].features;
+        featuresArr.push({title: '', text: ''});
+        context.commit('setPortfolioItems', copyArr);
     },
-    deleteFeatureFromItem(context: Context): void {
-        //
+    deleteFeatureFromItem(context: Context, payload: PortfolioFeatureDeleteData): void {
+        const copyArr = [...context.getters.portfolioItems];
+        const featuresArr = copyArr[payload.itemIndex].features;
+        featuresArr.splice(payload.featureIndex, 1);
+        context.commit('setPortfolioItems', copyArr);
     },
-    moveFeatureUp(context: Context): void {
-        //
-    },
-    moveFeatureDown(context: Context): void {
-        //
-    },
-    saveNewPortfolioItem(context: Context): void {
-        //
+    saveNewPortfolioItem(context: Context, index: number): void {
+        const newItem = context.getters.portfolioItems[index];
+        newItem.addedAt = new Date().getTime();
+        if (newItem.link === '') {
+            delete newItem.link;
+        }
+        const requestOptions: HttpOptions = {
+            method: 'POST',
+            endpoint: 'portfolio-items.json',
+            data: newItem,
+            successAction: PortfolioActions.FETCH_PORTFOLIO,
+            successMessage: 'Portfolio item added successfully.',
+            errorMessage: 'Unable to save new portfolio item.',
+        };
+        context.dispatch(HttpActions.SEND_REQUEST, requestOptions);
     },
 
 // BADGES

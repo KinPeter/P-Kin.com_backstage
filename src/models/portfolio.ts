@@ -25,12 +25,12 @@ export interface PortfolioItemUpdate {
     data: PortfolioItem;
 }
 
-export interface PortfolioBadgeUpdate {
-    index: number;
-    badges: string[];
+export interface PortfolioBadgeDeleteData {
+    itemIndex: number;
+    badgeIndex: number;
 }
 
-export interface PortfolioFeatureUpdate {
-    index: number;
-    features: PortfolioFeature[];
+export interface PortfolioFeatureDeleteData {
+    itemIndex: number;
+    featureIndex: number;
 }
