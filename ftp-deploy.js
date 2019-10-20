@@ -9,7 +9,7 @@ const green = '\x1b[32m';
 const red = '\x1b[31m';
 
 console.log(white + '****');
-console.log('[+] Deploying for TESTING...');
+console.log('[+] Deploying for PRODUCTION...');
 console.log('****\n' + reset);
 
 const config = {
