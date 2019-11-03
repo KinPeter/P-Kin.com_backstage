@@ -11,9 +11,11 @@ This app gives me full control on what is displayed on my website. I can add, ed
 Thanks to Vuetify it was really easy to create a nice looking and easily usable admin interface without writing even a line of CSS.
 
 - **Skills section:**
+
 ![skills](https://stuff.p-kin.com/screentogif/backstage-skills.gif) 
 
 - **Portfolio section:**
+
 ![skills](https://stuff.p-kin.com/screentogif/backstage-portfolio.gif) 
 
 ### Technologies used:
